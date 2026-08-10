@@ -15,12 +15,15 @@ class CreateUserService extends DTO
 
     public function createUser(DTO|CreateUserDTO $user)
     {
-
         $entity = new UserEntity($user);
+
 
         $userModel = new User();
 
-        $created = $userModel->create($entity);
+        dd($entity);
+
+
+        // $userModel->update($entity);
 
     }
 }

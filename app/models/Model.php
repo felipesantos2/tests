@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace app\models;
 
 use app\entities\Entity;
-use core\database\Connection;
+use core\Connection;
 use PDO;
 
 abstract class Model
@@ -40,7 +40,7 @@ abstract class Model
         return new $className(...$data);
     }
 
-    public function create(array|Entity $data): void
+    public function create(array|Entity $data)
     {
         $keys = implode(', ', array_keys($data));
 
@@ -52,7 +52,8 @@ abstract class Model
 
         $data = $this->getEntity($data);
 
-        $this->rawQuery(
+        // verify return
+        return $this->rawQuery(
             query: "INSERT INTO {$this->table} ({$keys}) VALUES ({$placeholder})",
             params: (array) $data
         );
@@ -156,9 +157,7 @@ abstract class Model
     /**
      * Executes the queries and returns the results
      *
-     * @param string $query
-     * @param array $params
-     * @return array|object|null
+     * @param  array  $params
      */
     private function rawQuery(string $query, array|Entity|null $params = []): array|object|null
     {
@@ -177,10 +176,6 @@ abstract class Model
 
     /**
      * Converts data to a specific class type, Hydrat
-     *
-     * @param string $class
-     * @param array $data
-     * @return object|null
      */
     private static function hydrate(string $class, array $data = []): ?object
     {

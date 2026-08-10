@@ -38,3 +38,6 @@
 - [ ] Garbage Collector
 - [ ] Referências e cópia de objetos
 - [ ] Como o Composer autoload funciona
+
+
+mysql -u root -p

@@ -1,4 +1,4 @@
-FROM php:8.4-alpine3.24
+FROM php:8.5-alpine3.24
 
 ENV APP_DIR /app
 

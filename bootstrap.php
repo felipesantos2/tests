@@ -2,13 +2,10 @@
 
 declare(strict_types=1);
 
+use Monolog\Handler\StreamHandler;
 use Monolog\Level;
 use Monolog\Logger;
-use Monolog\Handler\StreamHandler;
-
 use Symfony\Component\Dotenv\Dotenv;
-
-
 
 function loadDotenv(): void
 {
@@ -19,7 +16,6 @@ function loadDotenv(): void
 }
 
 loadDotenv();
-
 
 function info(string $message = 'info', array $context = []): void
 {

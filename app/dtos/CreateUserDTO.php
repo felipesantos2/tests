@@ -4,16 +4,31 @@ declare(strict_types=1);
 
 namespace app\dtos;
 
-use app\ValueObjects\Cpf;
-use app\ValueObjects\Email;
-
 final readonly class CreateUserDTO
 {
-    public function __construct(
-        public string $name,
-        public Email $email,
-        public ?Cpf $cpf = null,
-        public ?string $password = null,
-        public bool|int|null $status = null,
-    ) {}
+    public string $name;
+
+    public ?string $email;
+
+    public ?string $cpf;
+
+    public ?string $password;
+
+    public bool|int|null $status;
+
+    public function __construct() {}
+
+    public function filled(
+        string $name,
+        ?string $email,
+        ?string $cpf = null,
+        ?string $password = null,
+        bool|int|null $status = null,
+    ) {
+        $this->name = $name;
+        $this->email = $email;
+        $this->cpf = $cpf;
+        $this->password = $password;
+        $this->status = $status;
+    }
 }
