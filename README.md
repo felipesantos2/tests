@@ -1,7 +1,8 @@
 # phpmiro
 
-Micro-framework em PHP para estudar arquitetura em camadas (Model + Entity),
-testando um meio-termo entre Active Record e Data Mapper.
+Micro-framework em PHP como laboratório para o estudo e implementação ed variações de uma arquitetura em camadas (Model + Entity).
+
+A ideia inicial é implentar um meio-termo entre Active Record e Data Mapper.
 
 ## Ambiente (Docker)
 
